@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        body {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        video {
+            width: 40%;
+            max-width: 700px;
+            height: auto;
+            object-fit: contain;
+            background: transparent;
+            vertical-align: middle;
+            display: block;
+        }
+
+        .click-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            opacity: 0.8;
+        }
+
+        .expert-button {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background: #007bff; /* Or match your site's primary button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 2;
+        }
+
+        .expert-button:hover {
+            background: #0056b3; /* Darker shade for hover */
+        }
+
+        .expert-button.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Quad Platform</span>
+            </div>
+
+            <div class="nav-elements">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">
+                        <span class="nav-indicator"></span>
+                        Home
+                    </a></li>
+                    <li><a href="#how-it-works" class="nav-link">
+                        <span class="nav-indicator"></span>
+                        How It Works
+                    </a></li>
+                    <li><a href="#courses" class="nav-link">
+                        <span class="nav-indicator"></span>
+                        Courses
+                    </a></li>
+                    <li><a href="#pricing" class="nav-link">
+                        <span class="nav-indicator"></span>
+                        Pricing
+                    </a></li>
+                </ul>
+
+                <div class="nav-buttons">
+                    <button class="btn-secondary">Sign Up</button>
+                    <button class="btn-primary">Login</button>
+                </div>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <video autoplay muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="click-message">Click anywhere for sound</div>
+    </div>
+
+    <script>
+        const video = document.querySelector('video');
+        const message = document.querySelector('.click-message');
+
+        // Enable audio on click
+        document.addEventListener('click', function enableAudio() {
+            video.muted = false;
+            message.style.display = 'none';
+            document.removeEventListener('click', enableAudio);
+        }, { once: true });
+
+        // Handle video end
+        video.addEventListener('ended', function() {
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
