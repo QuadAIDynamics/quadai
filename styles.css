@@ -47,21 +47,27 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
+    gap: 1rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--secondary-color);
     cursor: pointer;
     padding-left: 1rem;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: var(--secondary-color);
 }
 
 .logo-icon {
-    color: var(--primary-color);
+    width: 50px !important;
+    height: 50px !important;
     transition: transform 0.3s ease;
 }
 
 .logo:hover .logo-icon {
-    transform: rotate(180deg);
+    transform: scale(1.1);
 }
 
 .nav-elements {

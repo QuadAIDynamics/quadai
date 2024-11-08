@@ -44,7 +44,7 @@
             height: auto;
             object-fit: contain;
             background: transparent;
-            vertical-align: middle;
+            vertical-align: center;
             display: block;
         }
 
@@ -87,19 +87,28 @@
             opacity: 1;
             visibility: visible;
         }
+
+        /* Add these logo styles */
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span>Quad Platform</span>
-            </div>
+            <a href="index.html" class="logo">
+                <img src="QUAD.png" alt="QUAD Logo" class="logo-icon" />
+                <span>Quad</span>
+            </a>
 
             <div class="nav-elements">
                 <ul class="nav-links">
